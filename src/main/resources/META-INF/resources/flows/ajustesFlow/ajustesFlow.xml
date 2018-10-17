@@ -2,8 +2,16 @@
 <flow xmlns="http://www.springframework.org/schema/webflow"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/webflow http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd"
-	abstract="false" start-state="ajustesFlowView">
+	abstract="false">
 
-	<view-state id="ajustesFlowView" />
+	<persistence-context />
+	<var name="ajustesBean" class="com.nemsolutions.auracommons.web.views.ajustesFlow.AjustesBean" />
+
+
+	<view-state id="ajustesFlowView">
+		<on-entry>
+			<evaluate expression="ajustesBean.init()"/>
+		</on-entry>
+	</view-state>
 
 </flow>
